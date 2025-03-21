@@ -89,6 +89,28 @@ botaoNao.addEventListener('mouseover', () => {
   botaoNao.style.left = novaPosX + 'px';
   botaoNao.style.top = novaPosY + 'px';
 });
+botaoNao.addEventListener('click', () => {
+  const larguraTela = window.innerWidth - botaoNao.offsetWidth; 
+  const alturaTela = window.innerHeight - botaoNao.offsetHeight;  
+  
+  
+  let novaPosX = Math.random() * larguraTela;
+  let novaPosY = Math.random() * alturaTela;
+  
+  
+  const centroX = window.innerWidth / 2 - botaoNao.offsetWidth / 2;
+  const centroY = window.innerHeight / 2 - botaoNao.offsetHeight / 2;
+  
+  
+  while (Math.abs(novaPosX - centroX) < 100 && Math.abs(novaPosY - centroY) < 100) {
+    novaPosX = Math.random() * larguraTela;
+    novaPosY = Math.random() * alturaTela;
+  }
+
+  
+  botaoNao.style.left = novaPosX + 'px';
+  botaoNao.style.top = novaPosY + 'px';
+});
 
 botaoSim.addEventListener('click', () => {
   window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLScYii_e0BRwilu4TLYr7WP9kRlo33Z8pXwSXmbl_2g4w87XBQ/viewform?usp=dialog";
